@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Partners - UdyamCircle</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="logo">
+  <img src="assets/logo-full.png">
+</a>
+
+  <nav>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="services.html">Services</a>
+    <a href="partners.html" class="primary-link">Partners</a>
+  </nav>
+
+  <a href="index.html" class="btn small">Home</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Our Growing Ecosystem 🤝</h1>
+    <p>
+      Startups, manufacturers, and professionals working together to build, launch, and scale.
+    </p>
+  </div>
+
+  <img src="assets/bg-pattern.png" class="bg-pattern">
+</section>
+
+<!-- STATS (TRUST BOOST) -->
+<section class="entry">
+  <div class="grid-4">
+
+    <div class="card entry-card">
+      <h2 id="startupCount">0+</h2>
+      <p>Startups</p>
+    </div>
+
+    <div class="card entry-card">
+      <h2 id="manufacturerCount">0+</h2>
+      <p>Manufacturers</p>
+    </div>
+
+    <div class="card entry-card">
+      <h2 id="serviceCount">0+</h2>
+      <p>Service Providers</p>
+    </div>
+
+    <div class="card entry-card">
+      <h2>India</h2>
+      <p>Growing Network</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MANUFACTURERS -->
+<section>
+  <h2>Manufacturers</h2>
+  <div class="grid-4" id="manufacturerList"></div>
+</section>
+
+<!-- SERVICES -->
+<section class="who">
+  <h2>Service Providers</h2>
+  <div class="grid-4" id="serviceList"></div>
+</section>
+
+<!-- STARTUPS -->
+<section>
+  <h2>Startups in Network</h2>
+  <div class="grid-4" id="startupList"></div>
+</section>
+
+<!-- CTA -->
+<section class="tech">
+  <h2>Want to Join Our Network?</h2>
+  <p>Be part of India's growing startup ecosystem</p>
+
+  <div style="margin-top:20px;">
+    <a href="manufacturer.html" class="btn">Join as Manufacturer</a>
+    <a href="service.html" class="btn secondary">Join as Service Provider</a>
+    <a href="startup.html" class="btn">Join as Startup</a>
+  </div>
+</section>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwM5I0rYz6kvqwvaZ4ALUA1qiPd6xht_GmKg58cIuIWUohoFmqfPhtiosaFxCFPBzgJYg/exec";
+
+/* MANUFACTURERS */
+fetch(scriptURL + "?type=manufacturer")
+.then(res => res.json())
+.then(data => {
+  let container = document.getElementById("manufacturerList");
+  document.getElementById("manufacturerCount").innerText = data.length + "+";
+
+  data.reverse().slice(0,6).forEach(row => {
+    container.innerHTML += `
+  <div class="card partner-card">
+    <div class="badge">Manufacturer</div>
+    <h3>${row[1]}</h3>
+    <p>${row[4]}</p>
+    <span>${row[6]}</span>
+  </div>
+`;
+  });
+});
+
+/* SERVICES */
+fetch(scriptURL + "?type=service")
+.then(res => res.json())
+.then(data => {
+  let container = document.getElementById("serviceList");
+  document.getElementById("serviceCount").innerText = data.length + "+";
+
+  data.reverse().slice(0,6).forEach(row => {
+    container.innerHTML += `
+  <div class="card partner-card">
+    <div class="badge service">Service</div>
+    <h3>${row[1]}</h3>
+    <p>${row[2]}</p>
+    <span>${row[3]} yrs experience</span>
+  </div>
+`;
+  });
+});
+
+/* STARTUPS */
+fetch(scriptURL + "?type=startup")
+.then(res => res.json())
+.then(data => {
+  let container = document.getElementById("startupList");
+  document.getElementById("startupCount").innerText = data.length + "+";
+
+  data.reverse().slice(0,6).forEach(row => {
+    container.innerHTML += `
+  <div class="card partner-card">
+    <div class="badge startup">Startup</div>
+    <h3>${row[2]}</h3>
+    <p>${row[4]}</p>
+    <span>${row[3]}</span>
+  </div>
+`;
+  });
+});
+
+lucide.createIcons();
+</script>
+
+</body>
+</html>

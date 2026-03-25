@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join as Service Provider - UdyamCircle</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="logo">
+  <img src="assets/logo-full.png">
+</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="partners.html">Partners</a>
+    <a href="#">Network</a>
+  </nav>
+
+  <a href="index.html" class="btn small">Back</a>
+</header>
+
+<!-- HERO -->
+<section class="hero service">
+  <div class="hero-text">
+    <h1>Join as Service Provider</h1>
+    <p>Support startups and grow your professional network with UdyamCircle.</p>
+  </div>
+
+  <img src="assets/service-bg.png" class="bg-pattern">
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+
+  <div class="form-card">
+
+    <h2>Become a Partner ⚖️</h2>
+    <p class="form-sub">Provide your services to startups and grow with us</p>
+
+    <form id="serviceForm">
+
+      <div class="form-group">
+        <input type="text" name="name" required>
+        <label>Your Name</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="service" required>
+        <label>Service Type (CA / Legal / Consultant)</label>
+      </div>
+
+      <div class="form-group">
+        <input type="number" name="experience" required>
+        <label>Experience (in years)</label>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" name="phone" required>
+        <label>Phone Number</label>
+      </div>
+
+      <div class="form-group">
+        <input type="email" name="email" required>
+        <label>Email Address</label>
+      </div>
+
+      <button type="submit" class="btn premium-btn" id="submitBtn">
+        Join as Partner
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- SUCCESS MESSAGE -->
+<div id="successMessage" class="success-box" style="display:none;">
+  <h2>✅ Registration Successful!</h2>
+  <p>You are now part of UdyamCircle network.</p>
+</div>
+
+<!-- SCRIPT -->
+<script>
+document.getElementById("serviceForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const phone = this.phone.value;
+
+  // VALIDATION
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert("Enter valid 10-digit phone number");
+    return;
+  }
+
+  const btn = document.getElementById("submitBtn");
+  btn.innerText = "Submitting...";
+  btn.disabled = true;
+
+  const formData = new FormData();
+  formData.append("type", "service");
+  formData.append("name", this.name.value);
+  formData.append("service", this.service.value);
+  formData.append("experience", this.experience.value);
+  formData.append("phone", this.phone.value);
+  formData.append("email", this.email.value);
+
+  fetch("https://script.google.com/macros/s/AKfycbwM5I0rYz6kvqwvaZ4ALUA1qiPd6xht_GmKg58cIuIWUohoFmqfPhtiosaFxCFPBzgJYg/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.text())
+  .then(() => {
+    document.getElementById("serviceForm").style.display = "none";
+    document.getElementById("successMessage").style.display = "block";
+  })
+  .catch(() => {
+    alert("Something went wrong. Try again.");
+    btn.innerText = "Join as Partner";
+    btn.disabled = false;
+  });
+});
+
+lucide.createIcons();
+</script>
+
+</body>
+</html>

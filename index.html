@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UdyamCircle</title>
+
+  <link rel="stylesheet" href="style.css"/>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="logo">
+  <img src="assets/logo-full.png">
+  </a>
+
+  <nav>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="services.html">Services</a>   <!-- removed primary-link -->
+  <a href="partners.html">Partners</a>
+  </nav>
+
+  <a href="#applySection" class="btn small">Apply Now</a>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-text">
+    <h1>Launch, Connect & Grow Your Startup</h1>
+    <p>
+      UdyamCircle helps startups launch smoothly, connect with the right people, and grow through a powerful ecosystem.
+    </p>
+
+    <div class="hero-buttons" id="applySection">
+      <a href="founder.html" class="btn">Start Your Business</a>
+      <a href="#" class="btn secondary" onclick="openPopup()">Join as Partner</a>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="assets/logo.png">
+  </div>
+
+  <img src="assets/bg-pattern.png" class="bg-pattern">
+
+</section>
+
+<!-- ENTRY -->
+<section class="entry">
+  <h2>How can we help you?</h2>
+
+  <div class="grid-4">
+
+    <a href="founder.html" class="card entry-card">
+      <h3>🚀 Start Your Business</h3>
+      <p>Launch your startup with full support.</p>
+    </a>
+
+    <a href="startup.html" class="card entry-card">
+      <h3>📈 Grow Your Startup</h3>
+      <p>Connect and scale with other startups.</p>
+    </a>
+
+    <a href="manufacturer.html" class="card entry-card">
+      <h3>🏭 Find Business</h3>
+      <p>Manufacturers get real startup clients.</p>
+    </a>
+
+    <a href="service.html" class="card entry-card">
+      <h3>⚖️ Offer Services</h3>
+      <p>Professionals support growing startups.</p>
+    </a>
+
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <h2>Who is UdyamCircle for?</h2>
+
+  <div class="grid-2">
+
+    <div class="card who-card">
+      <i data-lucide="lightbulb"></i>
+      <div>
+        <h3>First-time founders</h3>
+      </div>
+    </div>
+
+    <div class="card who-card">
+      <i data-lucide="package"></i>
+      <div>
+        <h3>Product startups</h3>
+      </div>
+    </div>
+
+    <div class="card who-card">
+      <i data-lucide="laptop"></i>
+      <div>
+        <h3>Tech startups</h3>
+      </div>
+    </div>
+
+    <div class="card who-card">
+      <i data-lucide="factory"></i>
+      <div>
+        <h3>Manufacturers</h3>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services">
+  <h2>Everything you need to start your business</h2>
+
+  <div class="grid-4">
+
+    <div class="card">
+      <i data-lucide="building"></i>
+      <h3>Manufacturer Sourcing</h3>
+      <p>Find trusted manufacturers easily.</p>
+    </div>
+
+    <div class="card">
+      <i data-lucide="box"></i>
+      <h3>Packaging & Supply</h3>
+      <p>Manage materials and packaging.</p>
+    </div>
+
+    <div class="card">
+      <i data-lucide="file-text"></i>
+      <h3>Legal & GST Setup</h3>
+      <p>Handle registrations smoothly.</p>
+    </div>
+
+    <div class="card">
+      <i data-lucide="rocket"></i>
+      <h3>Startup Guidance</h3>
+      <p>Step-by-step execution support.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process">
+  <h2>Simple 4-step process</h2>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="circle"><i data-lucide="clipboard"></i></div>
+      <p>Submit idea</p>
+    </div>
+
+    <div class="step">
+      <div class="circle"><i data-lucide="search"></i></div>
+      <p>We understand</p>
+    </div>
+
+    <div class="step">
+      <div class="circle"><i data-lucide="users"></i></div>
+      <p>We connect</p>
+    </div>
+
+    <div class="step">
+      <div class="circle"><i data-lucide="rocket"></i></div>
+      <p>You launch</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- TECH -->
+<section class="tech">
+  <h2>Also helping tech startups</h2>
+
+  <ul>
+    <li>✔ Business setup guidance</li>
+    <li>✔ Tools & cloud support</li>
+    <li>✔ Team collaboration</li>
+  </ul>
+
+  <a href="#" class="btn whatsapp">Chat on WhatsApp</a>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <h2>Select Your Category</h2>
+
+    <a href="manufacturer.html">🏭 Manufacturer</a>
+    <a href="startup.html">📈 Existing Startup</a>
+    <a href="service.html">⚖️ Service Provider</a>
+
+    <button onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<script>
+  function openPopup() {
+    document.getElementById("popup").style.display = "flex";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  lucide.createIcons();
+</script>
+
+</body>
+</html>

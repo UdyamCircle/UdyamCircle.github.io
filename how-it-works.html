@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How It Works - UdyamCircle</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+/* ===== HERO ===== */
+.hiw-hero {
+  position: relative;
+  padding: 140px 60px 200px;
+  background: linear-gradient(135deg,#f8fafc,#eef2f7);
+  overflow: hidden;
+}
+
+.hiw-hero h1 {
+  font-size: 54px;
+  color: #0B2545;
+}
+
+.hiw-hero p {
+  margin-top: 15px;
+  color: #4B5563;
+}
+
+/* glowing blobs */
+.hiw-blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  animation: floatBlob 8s infinite alternate ease-in-out;
+}
+
+.hiw-blob.one { background:#1FAF8B; top:-100px; left:-100px; }
+.hiw-blob.two { background:#3b82f6; bottom:-120px; right:-120px; }
+
+@keyframes floatBlob {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(80px,-40px); }
+}
+
+/* ===== SVG FLOW ===== */
+.hiw-flow {
+  position: relative;
+  margin-top: 60px;
+}
+
+.hiw-svg {
+  width: 100%;
+  height: 150px;
+}
+
+.hiw-path {
+  fill: none;
+  stroke: url(#gradientLine);
+  stroke-width: 4;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: draw 3s ease forwards;
+}
+
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* moving glow dot */
+.hiw-dot {
+  fill: #1FAF8B;
+  filter: drop-shadow(0 0 10px #1FAF8B);
+  animation: moveDot 4s linear infinite;
+}
+
+@keyframes moveDot {
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+/* ===== STEPS ===== */
+.hiw-steps {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -60px;
+  padding: 0 60px;
+}
+
+.hiw-card {
+  width: 23%;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  text-align: center;
+  transform: translateY(40px);
+  opacity: 0;
+  transition: 0.6s;
+}
+
+.hiw-card.active {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hiw-card:hover {
+  transform: translateY(-10px) scale(1.03);
+}
+
+/* circle */
+.hiw-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.c1 { background:#1FAF8B; }
+.c2 { background:#3b82f6; }
+.c3 { background:#9333ea; }
+.c4 { background:#f97316; }
+
+/* ===== WHY ===== */
+.hiw-why {
+  padding: 100px 60px;
+  text-align:center;
+}
+
+.hiw-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:40px;
+}
+
+.hiw-feature {
+  background:white;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.05);
+  transition:0.3s;
+}
+
+.hiw-feature:hover {
+  transform:translateY(-8px);
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+  .hiw-steps {
+    flex-direction:column;
+    gap:20px;
+    padding:0 20px;
+  }
+
+  .hiw-card { width:100%; }
+
+  .hiw-grid {
+    grid-template-columns:1fr;
+  }
+
+  .hiw-hero {
+    padding:80px 20px 150px;
+    text-align:center;
+  }
+
+  .hiw-hero h1 { font-size:30px; }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="logo">
+    <img src="assets/logo-full.png">
+  </a>
+
+  <nav>
+    <a href="how-it-works.html" class="primary-link">How It Works</a>
+    <a href="services.html">Services</a>
+    <a href="partners.html">Partners</a>
+  </nav>
+
+  <a href="index.html#entry" class="btn small">Apply Now</a>
+</header>
+
+<!-- HERO -->
+<section class="hiw-hero">
+
+  <div class="hiw-blob one"></div>
+  <div class="hiw-blob two"></div>
+
+  <h1>How UdyamCircle Works</h1>
+  <p>Launch your startup faster with the right connections & execution support.</p>
+
+  <!-- SVG FLOW -->
+  <div class="hiw-flow">
+    <svg class="hiw-svg" viewBox="0 0 1200 150">
+
+      <defs>
+        <linearGradient id="gradientLine">
+          <stop offset="0%" stop-color="#1FAF8B"/>
+          <stop offset="50%" stop-color="#3b82f6"/>
+          <stop offset="100%" stop-color="#9333ea"/>
+        </linearGradient>
+      </defs>
+
+      <path class="hiw-path"
+        d="M0 80 Q200 20 400 80 T800 80 T1200 80" />
+
+    </svg>
+  </div>
+
+</section>
+
+<!-- STEPS -->
+<section class="hiw-steps">
+
+  <div class="hiw-card">
+    <div class="hiw-circle c1">1</div>
+    <h3>Submit Idea</h3>
+    <p>Tell us your startup idea.</p>
+  </div>
+
+  <div class="hiw-card">
+    <div class="hiw-circle c2">2</div>
+    <h3>We Understand</h3>
+    <p>We analyze and guide you.</p>
+  </div>
+
+  <div class="hiw-card">
+    <div class="hiw-circle c3">3</div>
+    <h3>We Connect</h3>
+    <p>Connect with partners.</p>
+  </div>
+
+  <div class="hiw-card">
+    <div class="hiw-circle c4">4</div>
+    <h3>You Launch</h3>
+    <p>Start your business.</p>
+  </div>
+
+</section>
+
+<!-- WHY -->
+<section class="hiw-why">
+
+  <h2>Why Founders Choose Us</h2>
+
+  <div class="hiw-grid">
+
+    <div class="hiw-feature">
+      <h3>One Platform</h3>
+      <p>Everything in one place</p>
+    </div>
+
+    <div class="hiw-feature">
+      <h3>Faster Execution</h3>
+      <p>Launch quickly</p>
+    </div>
+
+    <div class="hiw-feature">
+      <h3>Verified Network</h3>
+      <p>Trusted partners</p>
+    </div>
+
+    <div class="hiw-feature">
+      <h3>Expert Support</h3>
+      <p>Guidance at every step</p>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+
+/* SCROLL ANIMATION */
+const cards = document.querySelectorAll(".hiw-card");
+
+function reveal() {
+  const trigger = window.innerHeight * 0.85;
+
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+
+    if (top < trigger) {
+      card.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", reveal);
+reveal();
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>

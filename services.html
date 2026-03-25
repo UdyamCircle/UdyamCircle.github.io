@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services - UdyamCircle</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<style>
+
+/* ===== HERO ===== */
+.srv-hero {
+  position: relative;
+  padding: 140px 60px 120px;
+  background: linear-gradient(135deg,#f8fafc,#eef2f7);
+  overflow: hidden;
+}
+
+.srv-hero h1 {
+  font-size: 52px;
+  color: #0B2545;
+}
+
+.srv-hero p {
+  margin-top: 15px;
+  color: #4B5563;
+}
+
+/* blobs */
+.srv-blob {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+  animation: floatBlob 8s infinite alternate ease-in-out;
+}
+
+.srv-blob.one { background:#1FAF8B; top:-100px; left:-100px; }
+.srv-blob.two { background:#3b82f6; bottom:-100px; right:-100px; }
+
+@keyframes floatBlob {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(60px,-40px); }
+}
+
+/* ===== CATEGORY ===== */
+.srv-section {
+  padding: 80px 60px;
+}
+
+.srv-section h2 {
+  margin-bottom: 40px;
+  color:#0B2545;
+}
+
+/* grid */
+.srv-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+}
+
+/* card */
+.srv-card {
+  position: relative;
+  padding:30px;
+  border-radius:18px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  transition: 0.4s;
+  overflow:hidden;
+}
+
+/* glow effect */
+.srv-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(31,175,139,0.15),transparent);
+  opacity:0;
+  transition:0.4s;
+}
+
+.srv-card:hover::before {
+  opacity:1;
+}
+
+.srv-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+}
+
+/* icon */
+.srv-icon {
+  width:50px;
+  height:50px;
+  background:#1FAF8B;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:15px;
+}
+
+.srv-icon i {
+  color:white;
+}
+
+/* ===== ANIMATION ===== */
+.srv-reveal {
+  opacity:0;
+  transform:translateY(40px);
+  transition:0.6s;
+}
+
+.srv-reveal.active {
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== CTA ===== */
+.srv-cta {
+  text-align:center;
+  padding:100px 60px;
+  background: radial-gradient(circle at center, #e6f7f3, #f5f7fa);
+}
+
+.srv-cta h2 {
+  margin-bottom:20px;
+}
+
+.srv-buttons {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+
+  .srv-grid {
+    grid-template-columns:1fr;
+  }
+
+  .srv-hero {
+    padding:80px 20px;
+    text-align:center;
+  }
+
+  .srv-hero h1 {
+    font-size:30px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="logo">
+    <img src="assets/logo-full.png">
+  </a>
+
+  <nav>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="services.html" class="primary-link">Services</a>
+    <a href="partners.html">Partners</a>
+  </nav>
+
+  <a href="index.html#entry" class="btn small">Apply Now</a>
+</header>
+
+<!-- HERO -->
+<section class="srv-hero">
+
+  <div class="srv-blob one"></div>
+  <div class="srv-blob two"></div>
+
+  <h1>Everything You Need to Build & Grow</h1>
+  <p>From idea to execution — we provide the complete startup ecosystem.</p>
+
+</section>
+
+<!-- SERVICES -->
+<section class="srv-section">
+
+  <h2>Startup Launch Services</h2>
+
+  <div class="srv-grid">
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="factory"></i></div>
+      <h3>Manufacturer Sourcing</h3>
+      <p>Connect with trusted manufacturers.</p>
+    </div>
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="box"></i></div>
+      <h3>Packaging & Supply</h3>
+      <p>Manage your packaging needs.</p>
+    </div>
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="file-text"></i></div>
+      <h3>Legal & GST</h3>
+      <p>Complete business registration.</p>
+    </div>
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="rocket"></i></div>
+      <h3>Startup Guidance</h3>
+      <p>Step-by-step execution support.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GROWTH -->
+<section class="srv-section">
+
+  <h2>Growth & Network</h2>
+
+  <div class="srv-grid">
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="users"></i></div>
+      <h3>Startup Networking</h3>
+      <p>Connect with other startups.</p>
+    </div>
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="trending-up"></i></div>
+      <h3>Growth Support</h3>
+      <p>Scale your business faster.</p>
+    </div>
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="cloud"></i></div>
+      <h3>Tech Tools</h3>
+      <p>Best tools & cloud support.</p>
+    </div>
+
+    <div class="srv-card srv-reveal">
+      <div class="srv-icon"><i data-lucide="briefcase"></i></div>
+      <h3>Professional Services</h3>
+      <p>CA, Legal & expert help.</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CTA -->
+<section class="srv-cta">
+
+  <h2>Ready to Build Your Startup?</h2>
+  <p>Join UdyamCircle and start your journey today.</p>
+
+  <div class="srv-buttons">
+    <a href="founder.html" class="btn">Start Your Business</a>
+    <a href="partners.html" class="btn secondary">Join as Partner</a>
+  </div>
+
+</section>
+
+<script>
+
+/* SCROLL ANIMATION */
+const items = document.querySelectorAll(".srv-reveal");
+
+function revealScroll(){
+  const trigger = window.innerHeight * 0.85;
+
+  items.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    if(top < trigger){
+      el.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealScroll);
+revealScroll();
+
+lucide.createIcons();
+
+</script>
+
+</body>
+</html>

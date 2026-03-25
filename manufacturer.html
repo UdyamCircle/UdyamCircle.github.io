@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join as Manufacturer - UdyamCircle</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <a href="index.html" class="logo">
+  <img src="assets/logo-full.png">
+</a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="partners.html">Partners</a>
+    <a href="#">Network</a>
+  </nav>
+
+  <a href="index.html" class="btn small">Back</a>
+</header>
+
+<!-- HERO -->
+<section class="hero manufacturer">
+  <div class="hero-text">
+    <h1>Join as Manufacturer</h1>
+    <p>Connect with startups and get consistent business opportunities.</p>
+  </div>
+
+  <img src="assets/manufacturer-bg.png" class="bg-pattern">
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+
+  <div class="form-card">
+
+    <h2>Partner with UdyamCircle 🏭</h2>
+    <p class="form-sub">Get discovered by startups and grow your manufacturing business</p>
+
+    <form id="manufacturerForm">
+
+      <div class="form-group">
+        <input type="text" name="company" required>
+        <label>Company Name</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="person" required>
+        <label>Contact Person</label>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" name="phone" required>
+        <label>Phone Number</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="category" required>
+        <label>Product Category</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="moq" required>
+        <label>Minimum Order Quantity (MOQ)</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" name="location" required>
+        <label>Location</label>
+      </div>
+
+      <button type="submit" class="btn premium-btn" id="submitBtn">
+        Join as Partner
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<!-- SUCCESS -->
+<div id="successMessage" class="success-box" style="display:none;">
+  <h2>✅ Registration Successful!</h2>
+  <p>We will connect you with relevant startups soon.</p>
+</div>
+
+<!-- SCRIPT -->
+<script>
+document.getElementById("manufacturerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const phone = this.phone.value;
+
+  // VALIDATION
+  if (!/^[0-9]{10}$/.test(phone)) {
+    alert("Enter valid 10-digit phone number");
+    return;
+  }
+
+  const btn = document.getElementById("submitBtn");
+  btn.innerText = "Submitting...";
+  btn.disabled = true;
+
+  const formData = new FormData();
+  formData.append("type", "manufacturer");
+  formData.append("company", this.company.value);
+  formData.append("person", this.person.value);
+  formData.append("phone", this.phone.value);
+  formData.append("category", this.category.value);
+  formData.append("moq", this.moq.value);
+  formData.append("location", this.location.value);
+
+  fetch("https://script.google.com/macros/s/AKfycbwM5I0rYz6kvqwvaZ4ALUA1qiPd6xht_GmKg58cIuIWUohoFmqfPhtiosaFxCFPBzgJYg/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(() => {
+    document.getElementById("manufacturerForm").style.display = "none";
+    document.getElementById("successMessage").style.display = "block";
+  })
+  .catch(() => {
+    alert("Something went wrong. Try again.");
+    btn.innerText = "Join as Partner";
+    btn.disabled = false;
+  });
+});
+
+lucide.createIcons();
+</script>
+
+</body>
+</html>

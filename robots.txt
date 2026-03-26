@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://udyamcircle.github.io/sitemap.xml

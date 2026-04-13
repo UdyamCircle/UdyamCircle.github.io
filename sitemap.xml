@@ -2,19 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://udyamcircle.github.io/</loc>
+    <loc>https://udyamcircle.com/</loc>
+    <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://udyamcircle.github.io/how-it-works.html</loc>
+    <loc>https://udyamcircle.com/how-it-works.html</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://udyamcircle.github.io/services.html</loc>
+    <loc>https://udyamcircle.com/services.html</loc>
+    <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://udyamcircle.github.io/partners.html</loc>
+    <loc>https://udyamcircle.com/partners.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://udyamcircle.com/founder.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://udyamcircle.com/manufacturer.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://udyamcircle.com/service.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://udyamcircle.com/startup.html</loc>
+    <priority>0.8</priority>
   </url>
 
 </urlset>

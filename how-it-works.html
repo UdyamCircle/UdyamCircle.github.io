@@ -3,11 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>How It Works - UdyamCircle</title>
+
+<title>How UdyamCircle Works | Startup Launch Platform India</title>
+
+<meta name="description" content="Understand how UdyamCircle helps startups launch, connect with manufacturers, and grow. Step-by-step startup execution platform in India.">
+
+<meta name="keywords" content="startup platform India, how to start business India, connect manufacturers, startup guidance India">
+
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph (VERY IMPORTANT) -->
+<meta property="og:title" content="How UdyamCircle Works">
+<meta property="og:description" content="Launch your startup with the right connections, manufacturers, and guidance.">
+<meta property="og:image" content="https://udyamcircle.com/assets/logo.png">
 <meta property="og:url" content="https://udyamcircle.com/how-it-works.html">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=2">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=2">
-<link rel="apple-touch-icon" href="assets/favicon.png?v=2">
+<meta property="og:type" content="website">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://udyamcircle.com/how-it-works.html">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=3">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=3">
+
 <link rel="stylesheet" href="style.css">
 <script src="script.js" defer></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -17,7 +38,7 @@
 /* ===== HERO ===== */
 .hiw-hero {
   position: relative;
-  padding: 150px 68px 220px;
+  padding: 140px 68px 120px;
   background:
     radial-gradient(950px 420px at 80% 8%, rgba(12, 166, 120, 0.24), transparent 68%),
     radial-gradient(700px 340px at 2% 18%, rgba(29, 78, 216, 0.16), transparent 66%),
@@ -37,12 +58,65 @@
   text-wrap: balance;
 }
 
+.hiw-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto 16px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(15, 122, 95, 0.12);
+  color: var(--brand);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .hiw-hero p {
   max-width: 620px;
   margin: 18px auto 0;
   text-align: center;
   font-size: 1.04rem;
   color: #4f6072;
+}
+
+.hiw-hero-stack {
+  max-width: 920px;
+  margin: 26px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.hiw-hero-card {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 39, 58, 0.08);
+  box-shadow: 0 16px 34px rgba(18, 36, 51, 0.08);
+  border-radius: 18px;
+  padding: 18px 16px;
+  text-align: left;
+  backdrop-filter: blur(8px);
+}
+
+.hiw-hero-card i {
+  width: 18px;
+  height: 18px;
+  color: var(--brand);
+  margin-bottom: 10px;
+}
+
+.hiw-hero-card h3 {
+  font-size: 0.98rem;
+  margin-bottom: 6px;
+}
+
+.hiw-hero-card p {
+  margin: 0;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #5d6c79;
 }
 
 /* glowing blobs */
@@ -69,6 +143,14 @@
   animation: hiwFloatB 9s infinite alternate ease-in-out;
 }
 
+.hiw-hero-shine {
+  position: absolute;
+  inset: auto 0 -140px;
+  height: 320px;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(15, 122, 95, 0.12), transparent 62%);
+}
+
 @keyframes hiwFloatA {
   from { transform: translate(0, 0); }
   to { transform: translate(90px, -36px); }
@@ -79,52 +161,119 @@
   to { transform: translate(-60px, -28px); }
 }
 
-/* ===== SVG FLOW ===== */
+/* ===== ORBIT / TREE FLOW ===== */
 .hiw-flow {
-  position: relative;
-  margin-top: 72px;
-}
-
-.hiw-svg {
-  width: 100%;
-  height: 160px;
-}
-
-.hiw-path {
-  fill: none;
-  stroke: url(#gradientLine);
-  stroke-width: 5;
-  stroke-linecap: round;
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
-  animation: draw 2.6s ease forwards;
-}
-
-@keyframes draw {
-  to { stroke-dashoffset: 0; }
+  display: none;
 }
 
 /* ===== STEPS ===== */
 .hiw-steps {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 92px 24px 84px;
+}
+
+.hiw-process-head {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 18px;
-  margin-top: -70px;
-  padding: 0 60px;
+  margin-bottom: 16px;
+  padding: 0 6px;
+}
+
+.hiw-process-head h2 {
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.hiw-process-head p {
+  max-width: 620px;
+  text-align: left;
+}
+
+.hiw-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.hiw-chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(16, 39, 58, 0.08);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.hiw-steps::before {
+  content: "";
+  position: absolute;
+  top: 116px;
+  bottom: 116px;
+  left: 58px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(15, 122, 95, 0.06), rgba(15, 122, 95, 0.4), rgba(29, 78, 216, 0.2));
 }
 
 .hiw-card {
-  width: 23%;
+  width: 100%;
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(16, 39, 58, 0.08);
-  padding: 28px 22px;
+  padding: 24px 24px 24px 96px;
   border-radius: 20px;
   box-shadow: 0 24px 52px rgba(18, 36, 51, 0.11);
-  text-align: center;
+  text-align: left;
   transform: translateY(40px);
   opacity: 0;
   transition: 0.6s;
+  position: relative;
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hiw-card:nth-child(2n) {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.84), rgba(243, 248, 255, 0.82));
+}
+
+.hiw-card:nth-child(3n) {
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.84), rgba(241, 250, 245, 0.82));
+}
+
+.hiw-card h3 {
+  margin-bottom: 8px;
+}
+
+.hiw-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--brand), var(--brand-2));
+  box-shadow: 0 0 0 6px rgba(15, 122, 95, 0.08);
+  transform: translateY(-50%);
+}
+
+.hiw-card:nth-child(1)::after,
+.hiw-card:nth-child(3)::after {
+  left: 49px;
+}
+
+.hiw-card:nth-child(2)::after,
+.hiw-card:nth-child(4)::after {
+  left: 49px;
 }
 
 .hiw-card.active {
@@ -134,6 +283,17 @@
 
 .hiw-card:hover {
   transform: translateY(-10px) scale(1.03);
+}
+
+.hiw-card:hover::after {
+  box-shadow: 0 0 0 9px rgba(15, 122, 95, 0.1);
+}
+
+.hiw-process-note {
+  max-width: 700px;
+  margin: 0 auto 8px;
+  text-align: center;
+  color: var(--muted);
 }
 
 /* circle */
@@ -161,6 +321,15 @@
   text-align: center;
 }
 
+.hiw-why h2 {
+  margin-bottom: 10px;
+}
+
+.hiw-why > p {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
 .hiw-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -171,10 +340,37 @@
 .hiw-feature {
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(16, 39, 58, 0.08);
-  padding: 25px;
+  padding: 24px;
   border-radius: 16px;
   box-shadow: 0 14px 34px rgba(18, 36, 51, 0.08);
   transition: 0.3s;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.hiw-feature::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(15, 122, 95, 0.08), transparent 35%);
+  opacity: 0.6;
+}
+
+.hiw-feature > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hiw-feature i {
+  width: 18px;
+  height: 18px;
+  color: var(--brand);
+  margin-bottom: 12px;
+}
+
+.hiw-feature h3 {
+  margin-bottom: 6px;
 }
 
 .hiw-feature:hover {
@@ -185,26 +381,55 @@
 /* ===== MOBILE ===== */
 @media(max-width:768px) {
 
-  .hiw-steps {
-    flex-direction: column;
-    gap: 18px;
-    padding: 0 16px;
-    margin-top: -40px;
+  .hiw-hero {
+    padding: 92px 18px 82px;
   }
 
-  .hiw-card { width: 100%; }
+  .hiw-hero h1 {
+    font-size: 2rem;
+  }
+
+  .hiw-hero-stack {
+    grid-template-columns: 1fr;
+  }
+
+  .hiw-steps {
+    padding: 42px 16px 64px;
+    gap: 14px;
+  }
+
+  .hiw-process-head {
+    flex-direction: column;
+    margin-bottom: 12px;
+  }
+
+  .hiw-chips {
+    justify-content: flex-start;
+  }
+
+  .hiw-steps::before {
+    left: 24px;
+    top: 14px;
+    bottom: 14px;
+  }
+
+  .hiw-card {
+    width: 100%;
+    padding: 20px 18px 18px 54px;
+    min-height: auto;
+  }
+
+  .hiw-card::after {
+    left: 15px !important;
+    right: auto !important;
+  }
 
   .hiw-grid {
     grid-template-columns: 1fr;
   }
 
-  .hiw-hero {
-    padding: 92px 18px 170px;
-    text-align: center;
-  }
-
-  .hiw-hero h1 {
-    font-size: 2rem;
+  .hiw-process-note {
+    padding: 0 4px;
   }
 
 }
@@ -235,32 +460,50 @@
 
   <div class="hiw-blob one"></div>
   <div class="hiw-blob two"></div>
+  <div class="hiw-hero-shine"></div>
 
+  <div class="hiw-eyebrow"><i data-lucide="sparkles"></i> Startup journey</div>
   <h1>How UdyamCircle Works</h1>
   <p>Launch your startup faster with the right connections & execution support.</p>
 
-  <!-- SVG FLOW -->
-  <div class="hiw-flow">
-    <svg class="hiw-svg" viewBox="0 0 1200 150">
+  <div class="hiw-hero-stack">
+    <div class="hiw-hero-card">
+      <i data-lucide="clipboard-list"></i>
+      <h3>Simple onboarding</h3>
+      <p>Share your idea or business type and we map the right path.</p>
+    </div>
 
-      <defs>
-        <linearGradient id="gradientLine">
-          <stop offset="0%" stop-color="#1FAF8B"/>
-          <stop offset="50%" stop-color="#3b82f6"/>
-          <stop offset="100%" stop-color="#9333ea"/>
-        </linearGradient>
-      </defs>
+    <div class="hiw-hero-card">
+      <i data-lucide="network"></i>
+      <h3>Right connections</h3>
+      <p>We connect you with manufacturers, service partners, or startups.</p>
+    </div>
 
-      <path class="hiw-path"
-        d="M0 80 Q200 20 400 80 T800 80 T1200 80" />
-
-    </svg>
+    <div class="hiw-hero-card">
+      <i data-lucide="rocket"></i>
+      <h3>Execution support</h3>
+      <p>Move from idea to launch with guided support at every stage.</p>
+    </div>
   </div>
 
 </section>
 
 <!-- STEPS -->
 <section class="hiw-steps">
+
+  <div class="hiw-process-head">
+    <div>
+      <h2>Step-by-step flow</h2>
+      <p class="hiw-process-note">Follow the path below. Each stage animates in one by one so the flow stays clear and easy to follow.</p>
+    </div>
+
+    <div class="hiw-chips" aria-label="Process highlights">
+      <span class="hiw-chip">Idea</span>
+      <span class="hiw-chip">Validation</span>
+      <span class="hiw-chip">Connections</span>
+      <span class="hiw-chip">Launch</span>
+    </div>
+  </div>
 
   <div class="hiw-card">
     <div class="hiw-circle c1">1</div>
@@ -292,25 +535,30 @@
 <section class="hiw-why">
 
   <h2>Why Founders Choose Us</h2>
+  <p>We combine business discovery, partner matching, and execution support into one clear path.</p>
 
   <div class="hiw-grid">
 
     <div class="hiw-feature">
+      <i data-lucide="layers-3"></i>
       <h3>One Platform</h3>
       <p>Everything in one place</p>
     </div>
 
     <div class="hiw-feature">
+      <i data-lucide="zap"></i>
       <h3>Faster Execution</h3>
       <p>Launch quickly</p>
     </div>
 
     <div class="hiw-feature">
+      <i data-lucide="badge-check"></i>
       <h3>Verified Network</h3>
       <p>Trusted partners</p>
     </div>
 
     <div class="hiw-feature">
+      <i data-lucide="sparkles"></i>
       <h3>Expert Support</h3>
       <p>Guidance at every step</p>
     </div>
@@ -323,20 +571,29 @@
 
 /* SCROLL ANIMATION */
 const cards = document.querySelectorAll(".hiw-card");
+let revealIndex = 0;
+let ticking = false;
 
 function reveal() {
-  const trigger = window.innerHeight * 0.85;
+  const trigger = window.innerHeight * 0.8;
+  if (revealIndex >= cards.length || ticking) {
+    return;
+  }
 
-  cards.forEach(card => {
-    const top = card.getBoundingClientRect().top;
-
-    if (top < trigger) {
-      card.classList.add("active");
+  ticking = true;
+  window.requestAnimationFrame(() => {
+    const currentCard = cards[revealIndex];
+    if (currentCard && currentCard.getBoundingClientRect().top < trigger) {
+      currentCard.classList.add("active");
+      revealIndex += 1;
     }
+
+    ticking = false;
   });
 }
 
 window.addEventListener("scroll", reveal);
+window.addEventListener("resize", reveal);
 reveal();
 
 lucide.createIcons();

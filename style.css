@@ -1182,7 +1182,7 @@ select:focus {
     --line: rgba(196, 212, 229, 0.2);
     --shadow-soft: 0 14px 40px rgba(2, 8, 14, 0.4);
     --shadow-pop: 0 28px 56px rgba(2, 8, 14, 0.48);
-  } */
+  }
 
   .navbar,
   .navbar.scrolled {
@@ -1211,7 +1211,7 @@ select:focus {
   .profile-item-label {
     color: #c2d4e8;
   }
-}
+} */
 
 @media (max-width: 1080px) {
   section {

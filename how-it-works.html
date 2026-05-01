@@ -439,21 +439,37 @@
 </head>
 
 <body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
 
 <!-- NAVBAR -->
 <header class="navbar">
   <a href="index.html" class="logo">
-    <img src="assets/logo-full.png?v=3">
+    <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
   </a>
 
   <nav>
     <a href="how-it-works.html" class="primary-link">How It Works</a>
     <a href="services.html">Services</a>
     <a href="partners.html">Partners</a>
+    <a href="faq.html">FAQ</a>
   </nav>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <i data-lucide="menu"></i>
+  </button>
 
   <a href="index.html#entry" class="btn small">Apply Now</a>
 </header>
+
+<div id="mobileNav" class="mobile-nav" aria-label="Mobile Navigation">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="services.html">Services</a>
+  <a href="partners.html">Partners</a>
+  <a href="faq.html">FAQ</a>
+</div>
+
+<main id="mainContent">
 
 <!-- HERO -->
 <section class="hiw-hero">
@@ -566,6 +582,35 @@
   </div>
 
 </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
+      <p>A simple process from startup idea to execution, partner matching, and launch support.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-links">
+      <h4>Start Now</h4>
+      <a href="founder.html">Founder Form</a>
+      <a href="startup.html">Startup Network</a>
+      <a href="manufacturer.html">Manufacturer Form</a>
+      <a href="service.html">Service Provider Form</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 UdyamCircle</p>
+    <span class="footer-pill">Guided launch workflow</span>
+  </div>
+</footer>
 
 <script>
 

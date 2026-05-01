@@ -1182,7 +1182,7 @@ select:focus {
   }
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b141b;
     --bg-soft: #0f1c26;
@@ -1193,7 +1193,7 @@ select:focus {
     --line: rgba(196, 212, 229, 0.2);
     --shadow-soft: 0 14px 40px rgba(2, 8, 14, 0.4);
     --shadow-pop: 0 28px 56px rgba(2, 8, 14, 0.48);
-  }
+  } */
 
   .navbar,
   .navbar.scrolled {

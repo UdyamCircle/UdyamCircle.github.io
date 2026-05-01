@@ -1470,8 +1470,3 @@ select:focus {
   }
 }
 
-.hero-img img {
-  width: 320px;
-  animation: floatLogo 4s ease-in-out infinite;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
-}

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Partner Profile - UdyamCircle</title>
+
+  <meta name="description" content="View public partner profiles on UdyamCircle with business details and descriptions.">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=2">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=2">
+  <link rel="apple-touch-icon" href="assets/favicon.png?v=2">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
+
+<header class="navbar">
+  <a href="index.html" class="logo">
+    <img src="assets/logo-full.png?v=3" alt="UdyamCircle logo">
+  </a>
+
+  <nav>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="services.html">Services</a>
+    <a href="partners.html" class="primary-link">Partners</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <i data-lucide="menu"></i>
+  </button>
+
+  <a href="partners.html" class="btn small">Back to Partners</a>
+</header>
+
+<div id="mobileNav" class="mobile-nav" aria-label="Mobile Navigation">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="services.html">Services</a>
+  <a href="partners.html">Partners</a>
+  <a href="faq.html">FAQ</a>
+</div>
+
+<main class="profile-shell" id="mainContent">
+  <div class="profile-bg-orb profile-bg-orb-one"></div>
+  <div class="profile-bg-orb profile-bg-orb-two"></div>
+
+  <section class="profile-card profile-loading" id="profileState">
+    <div class="profile-spinner" aria-hidden="true"></div>
+    <p>Loading partner profile...</p>
+  </section>
+
+  <article class="profile-card" id="profileCard" hidden>
+    <div class="profile-topbar">
+      <span class="profile-kicker" id="profileType">Partner</span>
+      <button type="button" class="profile-copy btn secondary" id="copyLinkBtn">
+        Copy Profile Link
+      </button>
+    </div>
+
+    <div class="profile-hero">
+      <div>
+        <h1 id="profileTitle">Partner Name</h1>
+        <p id="profileSubtitle">Details from UdyamCircle network</p>
+      </div>
+
+      <div class="profile-note">
+        <i data-lucide="shield-check"></i>
+        <span>Public business profile</span>
+      </div>
+    </div>
+
+    <div class="profile-summary" id="profileSummary"></div>
+
+    <div class="profile-grid" id="profileGrid"></div>
+
+    <div class="profile-actions">
+      <a href="partners.html" class="btn secondary">View More Partners</a>
+      <a href="index.html#entry" class="btn">Join UdyamCircle</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
+      <p>Public partner profiles to help founders connect with the right execution partners.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-links">
+      <h4>Onboarding</h4>
+      <a href="founder.html">Founder Form</a>
+      <a href="startup.html">Startup Form</a>
+      <a href="manufacturer.html">Manufacturer Form</a>
+      <a href="service.html">Service Form</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 UdyamCircle</p>
+    <span class="footer-pill">Transparent partner profiles</span>
+  </div>
+</footer>
+
+<script>
+const scriptURL = "https://script.google.com/macros/s/AKfycbwM5I0rYz6kvqwvaZ4ALUA1qiPd6xht_GmKg58cIuIWUohoFmqfPhtiosaFxCFPBzgJYg/exec";
+const FALLBACK_TEXT = "Not Provided Currently";
+
+function firstNonEmpty(values) {
+  for (const value of values) {
+    if (value !== null && value !== undefined) {
+      const trimmed = String(value).trim();
+      if (trimmed) {
+        return trimmed;
+      }
+    }
+  }
+  return FALLBACK_TEXT;
+}
+
+function experienceText(value) {
+  const clean = firstNonEmpty([value]);
+  return clean === FALLBACK_TEXT ? FALLBACK_TEXT : `${clean} years`;
+}
+
+function escapeHtml(value) {
+  const text = String(value ?? "");
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+const profileConfig = {
+  manufacturer: {
+    label: "Manufacturer",
+    title: (row) => firstNonEmpty([row[1], "Unnamed Manufacturer"]),
+    subtitle: (row) => `Category: ${firstNonEmpty([row[4]])}`,
+    summary: (row) => firstNonEmpty([row[7], row[8], row[9]]),
+    fields: (row) => [
+      ["Company Name", row[1]],
+      ["Contact Person", row[2]],
+      ["Category", row[4]],
+      ["Location", row[6]],
+      ["MOQ", row[5]],
+      ["Description", firstNonEmpty([row[7], row[8], row[9]])]
+    ]
+  },
+  service: {
+    label: "Service Provider",
+    title: (row) => firstNonEmpty([row[1], "Service Provider"]),
+    subtitle: (row) => `Service Type: ${firstNonEmpty([row[2]])}`,
+    summary: (row) => firstNonEmpty([row[6], row[7], row[8]]),
+    fields: (row) => [
+      ["Name", row[1]],
+      ["Service Type", row[2]],
+      ["Experience", experienceText(row[3])],
+      ["Description", firstNonEmpty([row[6], row[7], row[8]])]
+    ]
+  },
+  startup: {
+    label: "Startup",
+    title: (row) => firstNonEmpty([row[2], "Unnamed Startup"]),
+    subtitle: (row) => `Stage: ${firstNonEmpty([row[3]])}`,
+    summary: (row) => firstNonEmpty([row[7], row[8], row[9]]),
+    fields: (row) => [
+      ["Founder Name", row[1]],
+      ["Startup Name", row[2]],
+      ["Stage", row[3]],
+      ["Needs", row[4]],
+      ["Description", firstNonEmpty([row[7], row[8], row[9]])]
+    ]
+  }
+};
+
+function updateState(message, isError = false) {
+  const stateNode = document.getElementById("profileState");
+  stateNode.className = isError ? "profile-card profile-loading profile-error-state" : "profile-card profile-loading";
+  stateNode.innerHTML = isError
+    ? `<p class="profile-error">${escapeHtml(message)}</p>`
+    : `<div class="profile-spinner" aria-hidden="true"></div><p>${escapeHtml(message)}</p>`;
+}
+
+function renderProfile(type, row) {
+  const config = profileConfig[type];
+  const profileCard = document.getElementById("profileCard");
+  const stateNode = document.getElementById("profileState");
+  const profileSummary = document.getElementById("profileSummary");
+
+  document.getElementById("profileType").textContent = config.label;
+  document.getElementById("profileTitle").textContent = config.title(row);
+  document.getElementById("profileSubtitle").textContent = config.subtitle(row);
+
+  profileSummary.innerHTML = `
+    <div class="profile-summary-card">
+      <span>Overview</span>
+      <p>${escapeHtml(config.summary(row))}</p>
+    </div>
+  `;
+
+  const grid = document.getElementById("profileGrid");
+  grid.innerHTML = config.fields(row).map(([label, value]) => `
+    <div class="profile-item fade-in active">
+      <p class="profile-item-label">${escapeHtml(label)}</p>
+      <h3>${escapeHtml(firstNonEmpty([value]))}</h3>
+    </div>
+  `).join("");
+
+  stateNode.hidden = true;
+  profileCard.hidden = false;
+  profileCard.classList.add("profile-card-enter");
+  lucide.createIcons();
+}
+
+async function copyProfileLink() {
+  const url = window.location.href;
+  try {
+    await navigator.clipboard.writeText(url);
+    const button = document.getElementById("copyLinkBtn");
+    const original = button.textContent;
+    button.textContent = "Copied";
+    window.setTimeout(() => {
+      button.textContent = original;
+    }, 1400);
+  } catch {
+    alert("Could not copy the link.");
+  }
+}
+
+async function initProfilePage() {
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type");
+  const index = Number.parseInt(params.get("index"), 10);
+
+  if (!type || !Object.prototype.hasOwnProperty.call(profileConfig, type)) {
+    updateState("Invalid partner type in URL.", true);
+    return;
+  }
+
+  if (!Number.isInteger(index) || index < 0) {
+    updateState("Invalid partner index in URL.", true);
+    return;
+  }
+
+  try {
+    const response = await fetch(`${scriptURL}?type=${encodeURIComponent(type)}`);
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    const data = Array.isArray(rawData) ? [...rawData].reverse() : [];
+    const row = data[index];
+
+    if (!row) {
+      updateState("Partner profile not found. It may have been removed.", true);
+      return;
+    }
+
+    renderProfile(type, row);
+  } catch (error) {
+    console.error("Profile load failed", error);
+    updateState("Could not load partner profile. Please try again.", true);
+  }
+}
+
+document.getElementById("copyLinkBtn").addEventListener("click", copyProfileLink);
+initProfilePage();
+</script>
+
+</body>
+</html>

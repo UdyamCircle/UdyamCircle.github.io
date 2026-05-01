@@ -341,9 +341,10 @@ textarea:focus-visible {
 }
 
 .hero-img img {
-  width: min(430px, 90%);
-  filter: drop-shadow(0 24px 38px rgba(18, 36, 51, 0.2));
+  width: min(460px, 95%);
+  filter: drop-shadow(0 28px 45px rgba(18, 36, 51, 0.22));
   animation: hoverFloat 5s ease-in-out infinite;
+  transition: transform 0.3s ease;
 }
 
 .bg-pattern {
@@ -356,13 +357,12 @@ textarea:focus-visible {
 }
 
 @keyframes hoverFloat {
-  0%,
-  100% {
-    transform: translateY(0);
+  0%, 100% {
+    transform: translateY(0px);
   }
 
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-18px);
   }
 }
 
@@ -1451,8 +1451,6 @@ select:focus {
   text-align: center;
 }
 
-.hero-img img {
-  width: 320px;
-  animation: floatLogo 4s ease-in-out infinite;
+.hero-img img:hover {
+  transform: scale(1.04);
 }
-

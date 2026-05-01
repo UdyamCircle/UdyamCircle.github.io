@@ -15,21 +15,37 @@
 </head>
 
 <body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
 
 <!-- NAVBAR -->
 <header class="navbar">
   <a href="index.html" class="logo">
-  <img src="assets/logo-full.png?v=3">
+  <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
 </a>
 
   <nav>
     <a href="index.html">Home</a>
     <a href="partners.html">Partners</a>
-    <a href="#">Network</a>
+    <a href="services.html">Services</a>
+    <a href="faq.html">FAQ</a>
   </nav>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <i data-lucide="menu"></i>
+  </button>
 
   <a href="index.html" class="btn small">Back</a>
 </header>
+
+<div id="mobileNav" class="mobile-nav" aria-label="Mobile Navigation">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="services.html">Services</a>
+  <a href="partners.html">Partners</a>
+  <a href="faq.html">FAQ</a>
+</div>
+
+<main id="mainContent">
 
 <!-- HERO -->
 <section class="hero startup">
@@ -38,7 +54,7 @@
     <p>Connect with other startups, find support, and scale faster with UdyamCircle.</p>
   </div>
 
-  <img src="assets/startup-bg.png" class="bg-pattern">
+  <img src="assets/startup-bg.png" class="bg-pattern" alt="" aria-hidden="true">
 </section>
 
 <!-- FORM -->
@@ -48,6 +64,13 @@
 
     <h2>Join Startup Network 📈</h2>
     <p class="form-sub">Collaborate, grow, and unlock new opportunities</p>
+    <p class="form-help">Get matched with relevant founders, partners, and operators.</p>
+
+    <ul class="form-trust" aria-label="Trust highlights">
+      <li>Growth-focused network</li>
+      <li>Curated introductions</li>
+      <li>Fast response cycle</li>
+    </ul>
 
     <form id="startupForm">
 
@@ -104,49 +127,34 @@
   <p>We’ll connect you with relevant startups and opportunities.</p>
 </div>
 
-<!-- SCRIPT -->
-<script>
-document.getElementById("startupForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+</main>
 
-  const phone = this.phone.value;
-
-  // VALIDATION
-  if (!/^[0-9]{10}$/.test(phone)) {
-    alert("Enter valid 10-digit phone number");
-    return;
-  }
-
-  const btn = document.getElementById("submitBtn");
-  btn.innerText = "Submitting...";
-  btn.disabled = true;
-
-  const formData = new FormData();
-  formData.append("type", "startup");
-  formData.append("name", this.name.value);
-  formData.append("startup", this.startup.value);
-  formData.append("stage", this.stage.value);
-  formData.append("need", this.need.value);
-  formData.append("phone", this.phone.value);
-  formData.append("email", this.email.value);
-
-  fetch("https://script.google.com/macros/s/AKfycbwM5I0rYz6kvqwvaZ4ALUA1qiPd6xht_GmKg58cIuIWUohoFmqfPhtiosaFxCFPBzgJYg/exec", {
-    method: "POST",
-    body: formData
-  })
-  .then(() => {
-    document.getElementById("startupForm").style.display = "none";
-    document.getElementById("successMessage").style.display = "block";
-  })
-  .catch(() => {
-    alert("Something went wrong. Try again.");
-    btn.innerText = "Join Network";
-    btn.disabled = false;
-  });
-});
-
-lucide.createIcons();
-</script>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
+      <p>Scale smarter with startup collaborations, reliable service partners, and execution support.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-links">
+      <h4>Network</h4>
+      <a href="partners.html">Browse Partners</a>
+      <a href="founder.html">Start a Venture</a>
+      <a href="manufacturer.html">Find Manufacturing</a>
+      <a href="service.html">Get Service Support</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 UdyamCircle</p>
+    <span class="footer-pill">Startup growth network</span>
+  </div>
+</footer>
 
 </body>
 </html>

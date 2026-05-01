@@ -338,6 +338,8 @@ textarea:focus-visible {
 .hero-img {
   z-index: 2;
   justify-self: center;
+
+  position: relative;
 }
 
 .hero-img img {
@@ -1453,4 +1455,17 @@ select:focus {
 
 .hero-img img:hover {
   transform: scale(1.04);
+}
+
+.hero-img::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(15,122,95,0.25), transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  z-index: -1;
 }

@@ -195,6 +195,10 @@
       const submitButton = form.querySelector('button[type="submit"]');
       const successMessage = document.getElementById("successMessage");
 
+
+
+      gsap.to(".hero-img img", {...})
+
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 

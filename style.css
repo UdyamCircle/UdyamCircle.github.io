@@ -25,15 +25,6 @@
 }
 
 html {
-  color-scheme: light;
-}
-
-body {
-  background: #ffffff;
-  color: #0B2545;
-}
-
-html {
   scroll-behavior: smooth;
 }
 
@@ -347,15 +338,12 @@ textarea:focus-visible {
 .hero-img {
   z-index: 2;
   justify-self: center;
-
-  position: relative;
 }
 
 .hero-img img {
-  width: min(460px, 95%);
-  filter: drop-shadow(0 28px 45px rgba(18, 36, 51, 0.22));
+  width: min(430px, 90%);
+  filter: drop-shadow(0 24px 38px rgba(18, 36, 51, 0.2));
   animation: hoverFloat 5s ease-in-out infinite;
-  transition: transform 0.3s ease;
 }
 
 .bg-pattern {
@@ -368,12 +356,13 @@ textarea:focus-visible {
 }
 
 @keyframes hoverFloat {
-  0%, 100% {
-    transform: translateY(0px);
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
   50% {
-    transform: translateY(-18px);
+    transform: translateY(-12px);
   }
 }
 
@@ -1182,7 +1171,7 @@ select:focus {
   }
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --bg: #0b141b;
     --bg-soft: #0f1c26;
@@ -1193,7 +1182,7 @@ select:focus {
     --line: rgba(196, 212, 229, 0.2);
     --shadow-soft: 0 14px 40px rgba(2, 8, 14, 0.4);
     --shadow-pop: 0 28px 56px rgba(2, 8, 14, 0.48);
-  } */
+  }
 
   .navbar,
   .navbar.scrolled {
@@ -1460,31 +1449,4 @@ select:focus {
   margin-top: 14px;
   border-radius: 20px;
   text-align: center;
-}
-
-.hero-img img:hover {
-  transform: scale(1.04);
-}
-
-.hero-img::before {
-  content: "";
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  background: radial-gradient(circle, rgba(15,122,95,0.25), transparent);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  filter: blur(60px);
-  z-index: -1;
-}
-
-
-input, textarea, select {
-  background: #ffffff !important;
-  color: #132638 !important;
-}
-
-.btn {
-  color: #ffffff !important;
 }

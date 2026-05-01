@@ -1478,3 +1478,13 @@ select:focus {
   filter: blur(60px);
   z-index: -1;
 }
+
+
+input, textarea, select {
+  background: #ffffff !important;
+  color: #132638 !important;
+}
+
+.btn {
+  color: #ffffff !important;
+}

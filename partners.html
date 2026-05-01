@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Partners - UdyamCircle</title>
-  <meta property="og:url" content="https://udyamcircle.com/partners.html">
+  
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=2">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=2">
 <link rel="apple-touch-icon" href="assets/favicon.png?v=2">
@@ -15,21 +15,37 @@
 </head>
 
 <body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
 
 <!-- NAVBAR -->
 <header class="navbar">
   <a href="index.html" class="logo">
-  <img src="assets/logo-full.png?v=3">
+  <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
 </a>
 
   <nav>
     <a href="how-it-works.html">How It Works</a>
     <a href="services.html">Services</a>
     <a href="partners.html" class="primary-link">Partners</a>
+    <a href="faq.html">FAQ</a>
   </nav>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <i data-lucide="menu"></i>
+  </button>
 
   <a href="index.html" class="btn small">Home</a>
 </header>
+
+<div id="mobileNav" class="mobile-nav" aria-label="Mobile Navigation">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="services.html">Services</a>
+  <a href="partners.html">Partners</a>
+  <a href="faq.html">FAQ</a>
+</div>
+
+<main id="mainContent">
 
 <!-- HERO -->
 <section class="hero partners-hero">
@@ -40,7 +56,7 @@
     </p>
   </div>
 
-  <img src="assets/bg-pattern.png" class="bg-pattern">
+  <img src="assets/bg-pattern.png" class="bg-pattern" alt="" aria-hidden="true">
 </section>
 
 <!-- STATS (TRUST BOOST) -->
@@ -100,65 +116,154 @@
   </div>
 </section>
 
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
+      <p>Discover manufacturers, service providers, and startups actively building with UdyamCircle.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+    <div class="footer-links">
+      <h4>Join Network</h4>
+      <a href="founder.html">Founders</a>
+      <a href="startup.html">Startups</a>
+      <a href="manufacturer.html">Manufacturers</a>
+      <a href="service.html">Service Providers</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 UdyamCircle</p>
+    <span class="footer-pill">Verified partner ecosystem</span>
+  </div>
+</footer>
+
 <script>
 const scriptURL = "https://script.google.com/macros/s/AKfycbwM5I0rYz6kvqwvaZ4ALUA1qiPd6xht_GmKg58cIuIWUohoFmqfPhtiosaFxCFPBzgJYg/exec";
+const FALLBACK_TEXT = "Not Provided Currently";
 
-/* MANUFACTURERS */
-fetch(scriptURL + "?type=manufacturer")
-.then(res => res.json())
-.then(data => {
-  let container = document.getElementById("manufacturerList");
-  document.getElementById("manufacturerCount").innerText = data.length + "+";
+function firstNonEmpty(values) {
+  for (const value of values) {
+    if (value !== null && value !== undefined) {
+      const trimmed = String(value).trim();
+      if (trimmed) {
+        return trimmed;
+      }
+    }
+  }
+  return FALLBACK_TEXT;
+}
 
-  data.reverse().slice(0,6).forEach(row => {
-    container.innerHTML += `
-  <div class="card partner-card">
-    <div class="badge">Manufacturer</div>
-    <h3>${row[1]}</h3>
-    <p>${row[4]}</p>
-    <span>${row[6]}</span>
-  </div>
-`;
-  });
-});
+function experienceText(value) {
+  const clean = firstNonEmpty([value]);
+  return clean === FALLBACK_TEXT ? FALLBACK_TEXT : `${clean} yrs experience`;
+}
 
-/* SERVICES */
-fetch(scriptURL + "?type=service")
-.then(res => res.json())
-.then(data => {
-  let container = document.getElementById("serviceList");
-  document.getElementById("serviceCount").innerText = data.length + "+";
+const sectionConfig = {
+  manufacturer: {
+    listId: "manufacturerList",
+    countId: "manufacturerCount",
+    badgeClass: "",
+    badgeText: "Manufacturer",
+    title: (row) => firstNonEmpty([row[1], "Unnamed Manufacturer"]),
+    subtitle: (row) => firstNonEmpty([row[7], row[8], row[4]]),
+    meta: (row) => firstNonEmpty([row[6]])
+  },
+  service: {
+    listId: "serviceList",
+    countId: "serviceCount",
+    badgeClass: "service",
+    badgeText: "Service",
+    title: (row) => firstNonEmpty([row[1], "Service Provider"]),
+    subtitle: (row) => firstNonEmpty([row[6], row[7], row[2]]),
+    meta: (row) => experienceText(row[3])
+  },
+  startup: {
+    listId: "startupList",
+    countId: "startupCount",
+    badgeClass: "startup",
+    badgeText: "Startup",
+    title: (row) => firstNonEmpty([row[2], "Unnamed Startup"]),
+    subtitle: (row) => firstNonEmpty([row[7], row[8], row[4]]),
+    meta: (row) => firstNonEmpty([row[3]])
+  }
+};
 
-  data.reverse().slice(0,6).forEach(row => {
-    container.innerHTML += `
-  <div class="card partner-card">
-    <div class="badge service">Service</div>
-    <h3>${row[1]}</h3>
-    <p>${row[2]}</p>
-    <span>${row[3]} yrs experience</span>
-  </div>
-`;
-  });
-});
+function escapeHtml(value) {
+  const text = String(value ?? "");
+  return text
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 
-/* STARTUPS */
-fetch(scriptURL + "?type=startup")
-.then(res => res.json())
-.then(data => {
-  let container = document.getElementById("startupList");
-  document.getElementById("startupCount").innerText = data.length + "+";
+function createCard(type, row, index, config) {
+  const badgeClass = config.badgeClass ? ` ${config.badgeClass}` : "";
+  const href = `profile.html?type=${encodeURIComponent(type)}&index=${index}`;
 
-  data.reverse().slice(0,6).forEach(row => {
-    container.innerHTML += `
-  <div class="card partner-card">
-    <div class="badge startup">Startup</div>
-    <h3>${row[2]}</h3>
-    <p>${row[4]}</p>
-    <span>${row[3]}</span>
-  </div>
-`;
-  });
-});
+  return `
+    <a href="${href}" class="card partner-card partner-link fade-in" aria-label="Open ${escapeHtml(config.title(row))} profile">
+      <div class="badge${badgeClass}">${escapeHtml(config.badgeText)}</div>
+      <h3>${escapeHtml(config.title(row))}</h3>
+      <p>${escapeHtml(config.subtitle(row))}</p>
+      <span>${escapeHtml(config.meta(row))}</span>
+    </a>
+  `;
+}
+
+async function renderPartnerType(type) {
+  const config = sectionConfig[type];
+  const container = document.getElementById(config.listId);
+  const countNode = document.getElementById(config.countId);
+
+  container.innerHTML = `<p class="partner-state">Loading ${type} partners...</p>`;
+
+  try {
+    const response = await fetch(`${scriptURL}?type=${encodeURIComponent(type)}`);
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const rawData = await response.json();
+    const data = Array.isArray(rawData) ? [...rawData].reverse() : [];
+
+    countNode.innerText = `${data.length}+`;
+
+    if (!data.length) {
+      container.innerHTML = `<p class="partner-state">No ${type} partners found yet.</p>`;
+      return;
+    }
+
+    container.innerHTML = data
+      .map((row, index) => createCard(type, row, index, config))
+      .join("");
+
+    // Trigger reveal effect after dynamic insertion.
+    window.requestAnimationFrame(() => {
+      container.querySelectorAll(".fade-in").forEach((card) => {
+        card.classList.add("active");
+      });
+    });
+  } catch (error) {
+    console.error(`Failed to load ${type} partners`, error);
+    container.innerHTML = `<p class="partner-state error">Could not load ${type} partners. Please try again.</p>`;
+  }
+}
+
+Promise.all([
+  renderPartnerType("manufacturer"),
+  renderPartnerType("service"),
+  renderPartnerType("startup")
+]);
 
 lucide.createIcons();
 </script>

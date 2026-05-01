@@ -197,7 +197,6 @@
 
 
 
-      gsap.to(".hero-img img", {...})
 
       form.addEventListener("submit", (event) => {
         event.preventDefault();

@@ -25,6 +25,15 @@
 }
 
 html {
+  color-scheme: light;
+}
+
+body {
+  background: #ffffff;
+  color: #0B2545;
+}
+
+html {
   scroll-behavior: smooth;
 }
 

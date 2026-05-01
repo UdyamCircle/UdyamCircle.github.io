@@ -1456,17 +1456,3 @@ select:focus {
   animation: floatLogo 4s ease-in-out infinite;
 }
 
-
-/* Smooth floating animation */
-@keyframes floatLogo {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-18px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-

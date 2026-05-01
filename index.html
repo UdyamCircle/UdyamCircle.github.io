@@ -5,28 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <!-- SEO TITLE -->
-  <title>UdyamCircle | Launch, Connect & Grow Your Startup</title>
+  <title>UdyamCircle - Launch, Connect & Grow Your Startup</title>
 
-<meta name="description" content="UdyamCircle helps startups launch, connect with manufacturers and service providers, and grow through a powerful ecosystem.">
+  <!-- SEO META -->
+  <meta name="description" content="UdyamCircle helps startups launch, connect with manufacturers, and grow through a powerful ecosystem of partners and services.">
+  <meta name="keywords" content="UdyamCircle, startup India, business launch platform, manufacturers, startup help">
+  <meta name="author" content="UdyamCircle">
+  <meta name="google-site-verification" content="CW9ILCJ4sFF8WK9g7nxeIyv7dJpIcKURty0Y9wKhEhg" />
 
-<meta name="keywords" content="startup platform India, start business India, manufacturers for startups, startup help, UdyamCircle">
+  <!-- OPEN GRAPH (SHARING) -->
+  <meta property="og:title" content="UdyamCircle - Launch Your Startup">
+  <meta property="og:description" content="Launch and grow your startup with the right connections and support.">
+  <meta property="og:image" content="https://udyamcircle.github.io/assets/logo.png">
+  <meta property="og:url" content="https://udyamcircle.github.io">
 
-<meta name="author" content="UdyamCircle">
-
-<!-- Open Graph (IMPORTANT for social sharing) -->
-<meta property="og:title" content="UdyamCircle | Launch, Connect & Grow Your Startup">
-<meta property="og:description" content="Launch your startup, connect with the right partners, and grow with UdyamCircle.">
-<meta property="og:image" content="https://udyamcircle.com/assets/logo.png">
-<meta property="og:url" content="https://udyamcircle.com">
-<meta property="og:type" content="website">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="UdyamCircle">
-<meta name="twitter:description" content="Launch and grow your startup with the right ecosystem.">
-<meta name="twitter:image" content="https://udyamcircle.com/assets/logo.png">
-
-  <meta name="google-site-verification" content="N8dHiw1i_J-RkympQvPxfYelj8FlqdV02U6gjuISPfo" />
   <!-- FAVICON -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png?v=2">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon.png?v=2">
@@ -48,21 +40,37 @@
 </head>
 
 <body>
+<a class="skip-link" href="#mainContent">Skip to main content</a>
 
 <!-- NAVBAR -->
 <header class="navbar">
   <a href="index.html" class="logo">
-  <img src="assets/logo-full.png?v=3">
+  <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
   </a>
 
   <nav>
   <a href="how-it-works.html">How It Works</a>
   <a href="services.html">Services</a>
   <a href="partners.html">Partners</a>
+  <a href="faq.html">FAQ</a>
   </nav>
+
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <i data-lucide="menu"></i>
+  </button>
 
   <a href="#applySection" class="btn small">Apply Now</a>
 </header>
+
+<div id="mobileNav" class="mobile-nav" aria-label="Mobile Navigation">
+  <a href="index.html">Home</a>
+  <a href="how-it-works.html">How It Works</a>
+  <a href="services.html">Services</a>
+  <a href="partners.html">Partners</a>
+  <a href="faq.html">FAQ</a>
+</div>
+
+<main id="mainContent">
 
 <!-- HERO -->
 <section class="hero home-hero">
@@ -75,15 +83,15 @@
 
     <div class="hero-buttons" id="applySection">
       <a href="founder.html" class="btn">Start Your Business</a>
-      <a href="#" class="btn secondary" onclick="openPopup()">Join as Partner</a>
+      <button type="button" class="btn secondary" data-open-popup="partner">Join as Partner</button>
     </div>
   </div>
 
   <div class="hero-img">
-    <img src="assets/logo.png">
+    <img src="assets/logo.png" alt="UdyamCircle emblem">
   </div>
 
-  <img src="assets/bg-pattern.png" class="bg-pattern">
+  <img src="assets/bg-pattern.png" class="bg-pattern" alt="" aria-hidden="true">
 
 </section>
 
@@ -229,29 +237,49 @@
 </section>
 
 <!-- POPUP -->
-<div id="popup" class="popup">
+<div id="popup" class="popup" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="popupTitle">
   <div class="popup-content">
-    <h2>Select Your Category</h2>
+    <h2 id="popupTitle">Select Your Category</h2>
 
     <a href="manufacturer.html">🏭 Manufacturer</a>
     <a href="startup.html">📈 Existing Startup</a>
     <a href="service.html">⚖️ Service Provider</a>
 
-    <button onclick="closePopup()">Close</button>
+    <button type="button" data-close-popup>Close</button>
   </div>
 </div>
 
-<script>
-  function openPopup() {
-    document.getElementById("popup").style.display = "flex";
-  }
+</main>
 
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo-full.png?v=3" alt="UdyamCircle">
+      <p>UdyamCircle helps founders launch faster by connecting them with trusted manufacturers, service providers, and startup growth support.</p>
+    </div>
 
-  lucide.createIcons();
-</script>
+    <div class="footer-links">
+      <h4>Explore</h4>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="services.html">Services</a>
+      <a href="partners.html">Partners</a>
+      <a href="faq.html">FAQ</a>
+    </div>
+
+    <div class="footer-links">
+      <h4>Join UdyamCircle</h4>
+      <a href="founder.html">Start Your Business</a>
+      <a href="startup.html">Grow Your Startup</a>
+      <a href="manufacturer.html">Join as Manufacturer</a>
+      <a href="service.html">Join as Service Provider</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 UdyamCircle. Built for founder-first execution.</p>
+    <span class="footer-pill">India Startup Network</span>
+  </div>
+</footer>
 
 </body>
 </html>

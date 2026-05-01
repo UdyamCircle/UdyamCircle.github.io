@@ -96,6 +96,9 @@
     document.body.classList.add("menu-open");
   }
 
+
+  gsap.to(".hero-img img", {...})
+  
   function initMobileNav() {
     if (!navToggle || !mobileNav) {
       return;
